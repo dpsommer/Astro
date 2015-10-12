@@ -4,7 +4,7 @@ describe("Util class", function () {
     beforeAll(function (done) {
         var url;
         url = "https://public-api.wordpress.com/rest/v1.1/sites/98941271/posts/?search=json&number=1&fields=title,content";
-        util.ajax(url, function (err, data) {
+        ASTRO.core.util.ajax(url, function (err, data) {
             //console.log(err);
             error = err;
             json = data;

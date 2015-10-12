@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example 4</title>
+</head>
+<body>
+    <div data-wp-source="https://public-api.wordpress.com/rest/v1.1/sites/ncdsbcdn.wordpress.com/">
+        <div data-wp-element="posts" data-wp-options="category=Uncategorized" astro-layout="article"></div>
+    </div>
+
+    <div data-wp-source="https://public-api.wordpress.com/rest/v1.1/sites/98941271/">
+        <div data-wp-collection="posts" data-wp-options="category=Uncategorized&number=2">
+            <ul data-wp-layout="list">
+                <li astro-layout="article"></li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="../src/astro-wp-element.js"></script>
+</body>
+</html>

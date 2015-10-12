@@ -17,14 +17,14 @@ describe("Test Root Element", function() {
     it("should contain the apiSource", function() {
         var root, e;
             root = dom.querySelectorAll("[data-wp-source]");
-            e = RootElement(root[0]);
+            e = ASTRO.core.RootElement(root[0]);
         expect(e.getSourceURL()).toBe("https://public-api.wordpress.com/rest/v1.1/sites/98941271/");
     });
 
     it("should contain 1 element", function () {
         var root, e;
             root = dom.querySelectorAll("[data-wp-source]");
-        e = RootElement(root[0]);
+        e = ASTRO.core.RootElement(root[0]);
         expect(e.countElements()).toBe(1);
     });
 });
@@ -57,9 +57,9 @@ describe("Test WPElement", function () {
             root = dom.querySelectorAll("[data-wp-source]");
         els = root[0].querySelectorAll("[data-wp-element]");
         var wpEls = [];
-        var rootEls = RootElement(root[0]);
+        var rootEls = ASTRO.core.RootElement(root[0]);
         for (var i = 0; i < els.length; i++ ) {
-            wpEls.push(WPElement(els[i])); 
+            wpEls.push(ASTRO.core.WPElement(els[i]));
         }
         expect(wpEls[0].requestUrl(rootEls.getSourceURL())).toContain("posts");
     });
@@ -86,9 +86,9 @@ describe("Test WPElement with wrong type", function () {
             root = dom.querySelectorAll("[data-wp-source]");
         els = root[0].querySelectorAll("[data-wp-element]");
         var wpEls = [];
-        var rootEls = RootElement(root[0]);
+        var rootEls = ASTRO.core.RootElement(root[0]);
         for (var i = 0; i < els.length; i++ ) {
-            wpEls.push(WPElement(els[i])); 
+            wpEls.push(ASTRO.core.WPElement(els[i]));
         }
         expect(wpEls[0].requestUrl(rootEls.getSourceURL())).toBe(null);
     });
@@ -116,9 +116,9 @@ describe("Test WPElement with options", function () {
             root = dom.querySelectorAll("[data-wp-source]");
         els = root[0].querySelectorAll("[data-wp-element]");
         var wpEls = [];
-        var rootEls = RootElement(root[0]);
+        var rootEls = ASTRO.core.RootElement(root[0]);
         for (var i = 0; i < els.length; i++ ) {
-            wpEls.push(WPElement(els[i])); 
+            wpEls.push(ASTRO.core.WPElement(els[i]));
         }
         expect(wpEls[0].requestUrl(rootEls.getSourceURL())).toContain("fields");
     });
