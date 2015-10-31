@@ -1,12 +1,14 @@
-// Astro Framework - Wordpress verison(Beta)
+// Astro Framework - Wordpress verison 0.1.1
 // Copyright 2015 Ting Yang and Hector Jarquin
 // Released under the MIT license
-// Last updated: October 3rd, 2015 at WordCamp Toronto
-
+// Last updated: October 13th, 2015
+//
 // Support:
 //  Wordpress.com, the official RESTful api endpoint
 //  Wordpress.org (self hosted) with Jetpack json api plugin 
 //
+// Hightlight:
+// 1. rewrit the list render, ul and li will remove
 var ASTRO = (function (ASTRO) { 'use strict';
 
 if (ASTRO.core === undefined) {
@@ -301,6 +303,7 @@ module.util = {
     },
     insertContent: function (json, template) {
         // json = {post}
+        // insert each element with class = "post" + json["ID"]
         for (var i = 0; i < template.length; i++) {
             if (template[i].tagName === "IMG") {
                 template[i].setAttribute("src",
@@ -314,9 +317,8 @@ module.util = {
         }
     },
     insertCollections: function (json, layout) {
-        //
         // json = [{post}, {posts} ..]
-        var list = layout.querySelector("li");
+        var list = layout.querySelector("*");
         json.posts.forEach(function (post, index) {
             if (index == 0) {
                 // this not need to clone
@@ -399,6 +401,7 @@ function ASTROWP() {
         ASTRO.core.buildNode(parent[i]);
     }
 }
+
 ASTROWP();
 return ASTRO;
 })(ASTRO || {});
